@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dream_and_sleep/static/css/main.0f4254cd.css",
-    "main.js": "/dream_and_sleep/static/js/main.f5f43b34.js",
+    "main.js": "/dream_and_sleep/static/js/main.eea2ffea.js",
     "static/js/453.8c2f22c8.chunk.js": "/dream_and_sleep/static/js/453.8c2f22c8.chunk.js",
     "index.html": "/dream_and_sleep/index.html",
     "main.0f4254cd.css.map": "/dream_and_sleep/static/css/main.0f4254cd.css.map",
-    "main.f5f43b34.js.map": "/dream_and_sleep/static/js/main.f5f43b34.js.map",
+    "main.eea2ffea.js.map": "/dream_and_sleep/static/js/main.eea2ffea.js.map",
     "453.8c2f22c8.chunk.js.map": "/dream_and_sleep/static/js/453.8c2f22c8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0f4254cd.css",
-    "static/js/main.f5f43b34.js"
+    "static/js/main.eea2ffea.js"
   ]
 }
