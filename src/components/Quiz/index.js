@@ -29,24 +29,24 @@ const Quiz = () => {
     setOrderedOptions(newOrderedOptions);
   };
 
-  const handleNext = () => {
+  const saveAnswer = (index) => {
     setAnswers(prev => {
       const newAnswers = [...prev];
-      newAnswers[currentQuestion] = quizData[currentQuestion].type === 'multiple-choice' ? selectedOptions : orderedOptions;
+      newAnswers[index] = quizData[currentQuestion].type === 'multiple-choice' ? selectedOptions : orderedOptions;
       return newAnswers;
     });
+  };
+
+  const handleNext = () => {
+    saveAnswer(currentQuestion);
     setSelectedOptions([]);
     setOrderedOptions(quizData[currentQuestion + 1]?.type === 'order' ? quizData[currentQuestion + 1].options : []);
     setCurrentQuestion(currentQuestion + 1);
   };
 
   const handlePrev = () => {
+    saveAnswer(currentQuestion);
     if (currentQuestion > 0) {
-      setAnswers(prev => {
-        const newAnswers = [...prev];
-        newAnswers[currentQuestion] = quizData[currentQuestion].type === 'multiple-choice' ? selectedOptions : orderedOptions;
-        return newAnswers;
-      });
       setSelectedOptions(answers[currentQuestion - 1] || []);
       setOrderedOptions(answers[currentQuestion - 1] || []);
       setCurrentQuestion(currentQuestion - 1);
@@ -56,11 +56,7 @@ const Quiz = () => {
   };
 
   const handleSubmit = () => {
-    setAnswers(prev => {
-      const newAnswers = [...prev];
-      newAnswers[currentQuestion] = quizData[currentQuestion].type === 'multiple-choice' ? selectedOptions : orderedOptions;
-      return newAnswers;
-    });
+    saveAnswer(currentQuestion);
     setCurrentQuestion(quizData.length);
   };
 
