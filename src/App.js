@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
       <Routes>
-        <Route path="/dream_and_sleep/" element={<Quiz/>}/>
+        <Route path="/" element={<Quiz/>}/>
       </Routes>
   );
 }

@@ -13,18 +13,16 @@ const quizData = [
     },
     {
       type: 'order',
-      question: "Arrange these options in correct order",
+      question: "Arrange sleep cycle stage in correct order",
       options: [
-        { id: '1', content: "Option A" },
-        { id: '2', content: "Option B" },
-        { id: '3', content: "Option C" },
-        { id: '4', content: "Option D" }
+        { id: '1', content: "Vivid dreaming" },
+        { id: '2', content: "Deep sleep" },
+        { id: '3', content: "Light sleep" }
       ],
       correctOrder: [
-        { id: '3', content: "Option C" },
-        { id: '1', content: "Option A" },
-        { id: '4', content: "Option D" },
-        { id: '2', content: "Option B" }
+        { id: '3', content: "Light sleep" },
+        { id: '2', content: "Deep sleep" },
+        { id: '1', content: "Vivid dreaming" }
       ]
     },
     {
