@@ -85,6 +85,7 @@ ul {
 }
 
 .option.yellow {
+  background-color: #ffffff; /* blanc pour les bonnes réponses non sélectionnées */
   border-color: #98fb98; /* Change la bordure à vert pour les bonnes réponses non sélectionnées */
 }
 
@@ -97,6 +98,10 @@ li {
   transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition douce pour les changements de couleur */
   display: inline-block; /* Affiche les réponses en ligne */
   text-align: center; /* Centre le texte à l'intérieur des réponses */
+}
+
+.results h2 {
+  text-align: center;
 }
 
 .navigation {
