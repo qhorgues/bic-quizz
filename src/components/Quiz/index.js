@@ -93,18 +93,18 @@ const Quiz = () => {
           )}
           <div className="navigation">
             <button onClick={handlePrev}>
-              {currentQuestion === 0 ? 'Accueil' : 'Précédent'}
+              {currentQuestion === 0 ? 'Home' : 'Previous'}
             </button>
             {currentQuestion < quizData.length - 1 ?
-              <button onClick={handleNext}>Suivant</button> :
-              <button onClick={handleSubmit} className="submit-button">Terminer</button>}
+              <button onClick={handleNext}>Next</button> :
+              <button onClick={handleSubmit} className="submit-button">Finish</button>}
           </div>
         </>
       ) : (
         <>
           <Results answers={answers} quizData={quizData} />
           <div className="navigation">
-            <button onClick={handleHome}>Accueil</button>
+            <button onClick={handleHome}>Home</button>
           </div>
         </>
       )}

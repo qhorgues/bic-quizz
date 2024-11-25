@@ -4,12 +4,12 @@ const Results = ({ answers, quizData }) => {
   const wordList = [
     "Restorative",
     "REM",
-    "Rejuvenation",
+    "Consists of 9 characters",
     "Tranquility",
     "Serenity",
-    "Slumber",
-    "Hibernation",
-    "Peaceful",
+    "Sleep",
+    "The word is in two words",
+    "It's a word composed",
     "Nocturnal",
     "Quietude",
     "Repose",
@@ -64,8 +64,8 @@ const Results = ({ answers, quizData }) => {
 
   return (
     <div className="results">
-      <h2>Résultats</h2>
-      <p>Taux de réussite : {successRate}%</p>
+      <h2>Results</h2>
+      <p>Success rate : {successRate}%</p>
       {successRate > 50 && <p>The clue is: {getRandomWord()}</p>}
       {quizData.map((questionData, qIndex) => (
         <div key={qIndex} className="question-result">
