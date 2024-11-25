@@ -12,7 +12,7 @@ const Results = ({ answers, quizData }) => {
     "It's a word composed",
     "Nocturnal",
     "Quietude",
-    "Repose",
+    "At rest",
     "Relaxation",
     "Unconscious",
     "Dreamless",
