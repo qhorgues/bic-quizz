@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Home from '../Home';
-import Question from '../Question';
-import OrderQuestion from '../OrderQuestion';
-import Results from '../Results';
-import quizData from '../../quizData'; // Importation des données
+import React, { useState } from "react";
+import Home from "../Home";
+import Question from "../Question";
+import OrderQuestion from "../OrderQuestion";
+import Results from "../Results";
+import quizData from "../../quizData"; // Importation des données
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(-1); // -1 pour la page d'accueil
@@ -12,8 +12,10 @@ const Quiz = () => {
   const [answers, setAnswers] = useState(Array(quizData.length).fill([]));
 
   const handleOptionClick = (option) => {
-    setSelectedOptions(prev =>
-      prev.includes(option) ? prev.filter(opt => opt !== option) : [...prev, option]
+    setSelectedOptions((prev) =>
+      prev.includes(option)
+        ? prev.filter((opt) => opt !== option)
+        : [...prev, option],
     );
   };
 
@@ -22,7 +24,11 @@ const Quiz = () => {
       return;
     }
 
-    const newOrderedOptions = Array.from(orderedOptions.length ? orderedOptions : quizData[currentQuestion].options);
+    const newOrderedOptions = Array.from(
+      orderedOptions.length
+        ? orderedOptions
+        : quizData[currentQuestion].options,
+    );
     const [removed] = newOrderedOptions.splice(result.source.index, 1);
     newOrderedOptions.splice(result.destination.index, 0, removed);
 
@@ -30,9 +36,12 @@ const Quiz = () => {
   };
 
   const saveAnswer = (index) => {
-    setAnswers(prev => {
+    setAnswers((prev) => {
       const newAnswers = [...prev];
-      newAnswers[index] = quizData[currentQuestion].type === 'multiple-choice' ? selectedOptions : orderedOptions;
+      newAnswers[index] =
+        quizData[currentQuestion].type === "multiple-choice"
+          ? selectedOptions
+          : orderedOptions;
       return newAnswers;
     });
   };
@@ -40,7 +49,11 @@ const Quiz = () => {
   const handleNext = () => {
     saveAnswer(currentQuestion);
     setSelectedOptions([]);
-    setOrderedOptions(quizData[currentQuestion + 1]?.type === 'order' ? quizData[currentQuestion + 1].options : []);
+    setOrderedOptions(
+      quizData[currentQuestion + 1]?.type === "order"
+        ? quizData[currentQuestion + 1].options
+        : [],
+    );
     setCurrentQuestion(currentQuestion + 1);
   };
 
@@ -77,7 +90,7 @@ const Quiz = () => {
         <Home onStart={handleStart} />
       ) : currentQuestion < quizData.length ? (
         <>
-          {quizData[currentQuestion].type === 'multiple-choice' ? (
+          {quizData[currentQuestion].type === "multiple-choice" ? (
             <Question
               question={quizData[currentQuestion].question}
               options={quizData[currentQuestion].options}
@@ -87,17 +100,25 @@ const Quiz = () => {
           ) : (
             <OrderQuestion
               question={quizData[currentQuestion].question}
-              orderedOptions={orderedOptions.length ? orderedOptions : quizData[currentQuestion].options}
+              orderedOptions={
+                orderedOptions.length
+                  ? orderedOptions
+                  : quizData[currentQuestion].options
+              }
               handleDragEnd={handleDragEnd}
             />
           )}
           <div className="navigation">
             <button onClick={handlePrev}>
-              {currentQuestion === 0 ? 'Home' : 'Previous'}
+              {currentQuestion === 0 ? "Home" : "Previous"}
             </button>
-            {currentQuestion < quizData.length - 1 ?
-              <button onClick={handleNext}>Next</button> :
-              <button onClick={handleSubmit} className="submit-button">Finish</button>}
+            {currentQuestion < quizData.length - 1 ? (
+              <button onClick={handleNext}>Next</button>
+            ) : (
+              <button onClick={handleSubmit} className="submit-button">
+                Finish
+              </button>
+            )}
           </div>
         </>
       ) : (
@@ -110,6 +131,6 @@ const Quiz = () => {
       )}
     </div>
   );
-}
+};
 
 export default Quiz;

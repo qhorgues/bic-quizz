@@ -1,51 +1,74 @@
 const quizData = [
-    {
-      type: 'multiple-choice',
-      question: "How long do we usually dream each night ?",
-      options: ["1 hours", "2 hours", "3 hours", "4 hours"],
-      correctAnswers: ["2 hours"]
-    },
-    {
-      type: 'order',
-      question: "Arrange sleep cycle stage in correct order",
-      options: [
-        { id: '1', content: "Vivid dreaming" },
-        { id: '2', content: "The lightest stage of sleep"},
-        { id: '3', content: "Deep sleep" },
-        { id: '4', content: "Light sleep" }
-      ],
-      correctOrder: [
-        { id: '2', content: "The lightest stage of sleep"},
-        { id: '4', content: "Light sleep" },
-        { id: '3', content: "Deep sleep" },
-        { id: '1', content: "Vivid dreaming" }
-      ]
-    },
-    {
-      type: 'multiple-choice',
-      question: "What is the deep sleep time for one cycle ?",
-      options: ["20 - 40 min", "10 - 25 min", "15 - 30 min", "45 - 60 min"],
-      correctAnswers: ["20 - 40 min"]
-    },
-    {
-      type: 'multiple-choice',
-      question: "What is the recommanded sleep time ?",
-      options: ["6 hours", "7 hours", "7.30 hours", "8 hours", ],
-      correctAnswers: ["8 hours"]
-    },
-    {
-      type: 'multiple-choice',
-      question: "What are the many causes of nightmares ?",
-      options: ["Drug", "Fear", "Heartbreak", "Stress", "Illness", "Not eating enougt", "Alcoholism", "Traumatism"],
-      correctAnswers:  ["Drug", "Fear", "Stress", "Illness", "Traumatism"]
-    },
-    {
-      type: 'multiple-choice',
-      question: "What are the consequences of a bad night sleep ?",
-      options: ["Anxiety", "Smarter", "Stress", "Traumatism", "More focused", "Risk of cardiovascular problems"],
-      correctAnswers: ["Anxiety", "Stress", "Risk of cardiovascular problems"],
-    }
-    // Ajoute plus de questions ici
-  ];
+  {
+    type: "multiple-choice",
+    question: "What is the main operational model of BIC?",
+    options: [
+      "Mass production of disposable consumer goods",
+      "Custom-made artisanal goods",
+      "Luxury product manufacturing",
+      "Subscription-based services",
+    ],
+    correctAnswers: ["Mass production of disposable consumer goods"],
+  },
+  {
+    type: "order",
+    question: "Arrange the creation of BIC products in chronological order",
+    options: [
+      { id: "1", content: "Razors" },
+      { id: "2", content: "Lighters" },
+      { id: "3", content: "Pens" },
+      { id: "4", content: "Correction products" },
+    ],
+    correctOrder: [
+      { id: "3", content: "Pens" },
+      { id: "2", content: "Lighters" },
+      { id: "1", content: "Razors" },
+      { id: "4", content: "Correction products" },
+    ],
+  },
+  {
+    type: "multiple-choice",
+    question:
+      "How many one-way trips between Earth and Pluto would it take to equal the total distance traveled by the ink in all BIC pens sold?",
+    options: ["10", "20", "40", "50", "100", "200"],
+    correctAnswers: ["40"],
+  },
+  {
+    type: "multiple-choice",
+    question: "Which BIC product line(s) are the most profitable?",
+    options: ["Blade excellence", "Human ressources", "Flame for life"],
+    correctAnswers: ["Flame for life"],
+  },
+  {
+    type: "multiple-choice",
+    question: "Which of the following products are NOT manufactured by BIC?",
+    options: [
+      "Toothbrushes",
+      "Disposable razors",
+      "Lighters",
+      "Ballpoint pens",
+      "Perfume",
+      "Correction fluid",
+    ],
+    correctAnswers: ["Toothbrushes", "Perfume"],
+  },
+  {
+    type: "multiple-choice",
+    question: "What is the name of the iconic BIC pen introduced in 1950?",
+    options: ["BIC Original", "BIC Point", "BIC Cristal", "BIC Classic"],
+    correctAnswers: ["BIC Cristal"],
+  },
+  {
+    type: "multiple-choice",
+    question: "Which markets does BIC NOT primarily target?",
+    options: [
+      "Luxury fashion",
+      "Education",
+      "Office supplies",
+      "Personal care",
+    ],
+    correctAnswers: ["Luxury fashion"],
+  },
+];
 
 export default quizData;

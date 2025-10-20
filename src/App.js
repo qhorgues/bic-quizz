@@ -1,11 +1,11 @@
-import React from 'react';
-import Quiz from './components/Quiz';
-import { Route, Routes } from 'react-router-dom';
+import React from "react";
+import Quiz from "./components/Quiz";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <Routes>
-      <Route path="/dream_and_sleep/" element={<Quiz/>}/>
+      <Route path="/bic-quizz/" element={<Quiz />} />
     </Routes>
   );
 }

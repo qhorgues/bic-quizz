@@ -1,5 +1,5 @@
-import React from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import React from "react";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 const OrderQuestion = ({ question, orderedOptions, handleDragEnd }) => {
   return (
@@ -14,7 +14,11 @@ const OrderQuestion = ({ question, orderedOptions, handleDragEnd }) => {
               className="droppable-container"
             >
               {orderedOptions.map((option, index) => (
-                <Draggable key={option.id} draggableId={option.id} index={index}>
+                <Draggable
+                  key={option.id}
+                  draggableId={option.id}
+                  index={index}
+                >
                   {(provided) => (
                     <li
                       ref={provided.innerRef}
@@ -34,6 +38,6 @@ const OrderQuestion = ({ question, orderedOptions, handleDragEnd }) => {
       </DragDropContext>
     </div>
   );
-}
+};
 
 export default OrderQuestion;
