@@ -19,7 +19,7 @@ const OrderQuestion = ({ question, orderedOptions, handleDragEnd }) => {
                   draggableId={option.id}
                   index={index}
                 >
-                  {(provided) => (
+                  {(provided, snapshot) => (
                     <li
                       ref={provided.innerRef}
                       {...provided.draggableProps}

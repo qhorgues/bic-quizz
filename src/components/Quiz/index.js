@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Home from "../Home";
 import Question from "../Question";
 import OrderQuestion from "../OrderQuestion";
@@ -9,80 +9,87 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(-1); // -1 pour la page d'accueil
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [orderedOptions, setOrderedOptions] = useState([]);
-  const [answers, setAnswers] = useState(Array(quizData.length).fill([]));
+  const [answers, setAnswers] = useState(() =>
+    Array.from({ length: quizData.length }, () => []),
+  );
 
-  const handleOptionClick = (option) => {
+  const handleHome = useCallback(() => {
+    setCurrentQuestion(-1);
+    setSelectedOptions([]);
+    setOrderedOptions([]);
+    setAnswers(Array.from({ length: quizData.length }, () => []));
+  }, []);
+
+  const handleOptionClick = useCallback((option) => {
     setSelectedOptions((prev) =>
       prev.includes(option)
         ? prev.filter((opt) => opt !== option)
         : [...prev, option],
     );
-  };
+  }, []);
 
-  const handleDragEnd = (result) => {
-    if (!result.destination) {
-      return;
-    }
+  const handleDragEnd = useCallback(
+    (result) => {
+      if (!result.destination) return;
 
-    const newOrderedOptions = Array.from(
-      orderedOptions.length
-        ? orderedOptions
-        : quizData[currentQuestion].options,
-    );
-    const [removed] = newOrderedOptions.splice(result.source.index, 1);
-    newOrderedOptions.splice(result.destination.index, 0, removed);
+      const items = Array.from(orderedOptions);
+      const [moved] = items.splice(result.source.index, 1);
+      items.splice(result.destination.index, 0, moved);
 
-    setOrderedOptions(newOrderedOptions);
-  };
+      setOrderedOptions(items);
+    },
+    [orderedOptions],
+  );
 
-  const saveAnswer = (index) => {
-    setAnswers((prev) => {
-      const newAnswers = [...prev];
-      newAnswers[index] =
-        quizData[currentQuestion].type === "multiple-choice"
-          ? selectedOptions
-          : orderedOptions;
-      return newAnswers;
-    });
-  };
+  const saveAnswer = useCallback(
+    (index) => {
+      setAnswers((prev) => {
+        const newAnswers = [...prev];
+        newAnswers[index] =
+          quizData[currentQuestion].type === "multiple-choice"
+            ? selectedOptions
+            : orderedOptions;
+        return newAnswers;
+      });
+    },
+    [currentQuestion, orderedOptions, selectedOptions],
+  );
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     saveAnswer(currentQuestion);
+
     setSelectedOptions([]);
     setOrderedOptions(
       quizData[currentQuestion + 1]?.type === "order"
         ? quizData[currentQuestion + 1].options
         : [],
     );
-    setCurrentQuestion(currentQuestion + 1);
-  };
 
-  const handlePrev = () => {
+    setCurrentQuestion((prev) => prev + 1);
+  }, [currentQuestion, saveAnswer]);
+
+  const handlePrev = useCallback(() => {
     saveAnswer(currentQuestion);
+
     if (currentQuestion > 0) {
       setSelectedOptions(answers[currentQuestion - 1] || []);
       setOrderedOptions(answers[currentQuestion - 1] || []);
-      setCurrentQuestion(currentQuestion - 1);
+      setCurrentQuestion((prev) => prev - 1);
     } else {
       handleHome();
     }
-  };
+  }, [currentQuestion, answers, saveAnswer, handleHome]);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     saveAnswer(currentQuestion);
     setCurrentQuestion(quizData.length);
-  };
+  }, [currentQuestion, saveAnswer]);
 
-  const handleStart = () => {
+  const handleStart = useCallback(() => {
     setCurrentQuestion(0);
-  };
-
-  const handleHome = () => {
-    setCurrentQuestion(-1);
     setSelectedOptions([]);
-    setOrderedOptions([]);
-    setAnswers(Array(quizData.length).fill([])); // Réinitialise les réponses
-  };
+    setOrderedOptions(quizData[0]?.type === "order" ? quizData[0].options : []);
+  }, []);
 
   return (
     <div className="quiz">
