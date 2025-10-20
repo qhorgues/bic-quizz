@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dream_and_sleep/static/css/main.0fa71d29.css",
-    "main.js": "/dream_and_sleep/static/js/main.75852a83.js",
-    "static/js/453.8c2f22c8.chunk.js": "/dream_and_sleep/static/js/453.8c2f22c8.chunk.js",
-    "index.html": "/dream_and_sleep/index.html",
-    "main.0fa71d29.css.map": "/dream_and_sleep/static/css/main.0fa71d29.css.map",
-    "main.75852a83.js.map": "/dream_and_sleep/static/js/main.75852a83.js.map",
-    "453.8c2f22c8.chunk.js.map": "/dream_and_sleep/static/js/453.8c2f22c8.chunk.js.map"
+    "main.css": "/bic-quizz/static/css/main.0fa71d29.css",
+    "main.js": "/bic-quizz/static/js/main.e5fa61ab.js",
+    "static/js/488.396b6823.chunk.js": "/bic-quizz/static/js/488.396b6823.chunk.js",
+    "index.html": "/bic-quizz/index.html",
+    "main.0fa71d29.css.map": "/bic-quizz/static/css/main.0fa71d29.css.map",
+    "main.e5fa61ab.js.map": "/bic-quizz/static/js/main.e5fa61ab.js.map",
+    "488.396b6823.chunk.js.map": "/bic-quizz/static/js/488.396b6823.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0fa71d29.css",
-    "static/js/main.75852a83.js"
+    "static/js/main.e5fa61ab.js"
   ]
 }
